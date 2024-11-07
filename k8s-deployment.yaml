@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: question-microservice
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: question-microservice
+  template:
+    metadata:
+      labels:
+        app: question-microservice
+    spec:
+      containers:
+        - name: question-microservice
+          image: question-microservice:1.0
+          ports:
+            - containerPort: 8080
